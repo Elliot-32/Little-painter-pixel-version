@@ -6,6 +6,12 @@ input.onPinPressed(TouchPin.P0, function () {
 input.onButtonPressed(Button.A, function () {
     printer.change(LedSpriteProperty.X, -1)
 })
+// 全部清除
+input.onGesture(Gesture.Shake, function () {
+    for (let index3 = 0; index3 <= list.length - 1; index3++) {
+        list[index3].delete()
+    }
+})
 // 畫筆
 input.onPinPressed(TouchPin.P2, function () {
     if (list.length == 0) {
@@ -46,6 +52,8 @@ input.onPinPressed(TouchPin.P1, function () {
  * 引腳P2：畫筆
  * 
  * 按鈕A+B：橡皮擦
+ * 
+ * 晃動：全部清除
  */
 let list: game.LedSprite[] = []
 let printer: game.LedSprite = null
